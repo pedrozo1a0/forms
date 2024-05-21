@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import { Formulario } from "./componentes/Formulario";
+import { Informacion } from "./componentes/Informacion";
+import './App.css'
+export function App(){
+const [informaciones, setInformaciones]=useState([]);
+    return(
+        <div className="contenedor">
+        <Formulario  informaciones={informaciones}
+                    setInformaciones={setInformaciones}
+        />
+        {informaciones.map((info)=>{return(
+        <Informacion      firstName={info.firstName} 
+                        lastName={info.lastName}
+                        email={info.email}
+                        
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        
+        />)})}
+        </div>
+    )
 }
-
-export default App;
