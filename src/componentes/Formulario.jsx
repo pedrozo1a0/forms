@@ -16,10 +16,10 @@ export function Formulario (props){
         console.log(props.informaciones);
     }
 
-    const [longCaracteresName, setLongCaracteresName]= useState(0);
-    const [longCaracteresLastName, setLongCaracteresLastName]= useState(0);
-    const [longCaracteresEmail, setLongCaracteresEmail]= useState(0);
-    const [longCaracteresPassword, setLongCaracteresPassword]= useState(0);
+    const [longCaracteresName, setLongCaracteresName]= useState(3);
+    const [longCaracteresLastName, setLongCaracteresLastName]= useState(3);
+    const [longCaracteresEmail, setLongCaracteresEmail]= useState(5);
+    const [longCaracteresPassword, setLongCaracteresPassword]= useState(8);
     const [passwordValue, setPasswordValue]= useState("");
     const [confirmPasswordValue, setConfirmPasswordValue]= useState("");
 
@@ -62,7 +62,7 @@ export function Formulario (props){
             <div className="container">
                 <div>
                     <label htmlFor="name" >First Name</label>
-                    <input type="text" id="name" onChange={(e)=>{actualizarInfoName(e.target.value, "firstName", e.target.value.length, actualizarFicha  )}}  />
+                    <input type="text" id="name" autoComplete="off" onChange={(e)=>{actualizarInfoName(e.target.value, "firstName", e.target.value.length, actualizarFicha  )}}  />
                     {longCaracteresName<2 ? <p>El campo debe tener por lo menos dos caracteres</p>  : ""}
                 </div>
                 <div>
@@ -72,7 +72,7 @@ export function Formulario (props){
                 </div>
                 <div>
                     <label htmlFor="email" >Email</label>
-                    <input type="email" id="email" onChange={(e)=>{actualizarInfoEmail(e.target.value, "email", e.target.value.length, actualizarFicha )}}/>
+                    <input type="email" id="email" autoComplete="off" onChange={(e)=>{actualizarInfoEmail(e.target.value, "email", e.target.value.length, actualizarFicha )}}/>
                     {longCaracteresEmail<5 ? <p>El campo debe tener por lo menos cinco caracteres</p>  : ""}
                 </div>
                 <div>
